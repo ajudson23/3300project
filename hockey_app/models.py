@@ -1,6 +1,5 @@
 from django.db import models
 from django.urls import reverse
-from django.contrib.auth.models import AbstractUser
 
 class Player(models.Model):
     LEVELS = [
@@ -27,7 +26,3 @@ class Player(models.Model):
        return self.name
     def get_absolute_url(self):
        return reverse('player-detail', args=[str(self.id)])
-
-class CustomUser(AbstractUser):
-    # Add any additional fields you need
-    pass

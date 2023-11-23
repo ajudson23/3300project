@@ -12,32 +12,38 @@
     {% bootstrap_javascript %}
 
     <style>
-        .navbar { 
+        .navbar {
             background-color: black;
         }
+
         .logo {
             width: 75px;
             height: 75px;
         }
+
         h1 {
             color: #FDB935;
         }
-        .dropdown{
+
+        .dropdown {
             background-color: white;
         }
+
         .dropdown-menu:hover {
             color: #FDB935;
         }
-        .dropdown{
+
+        .dropdown {
             margin-right: 100px;
-        }  
+        }
 
         .content-padding {
-            padding-left: 50px; 
+            padding-left: 50px;
             padding-top: 100px;
             padding-bottom: 100px;
             padding-right: 50px;
         }
+
         .image-overlay {
             position: relative;
         }
@@ -49,32 +55,41 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fdba35b5); /* You can adjust the colors and opacity */
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fdba35b5);
+            /* You can adjust the colors and opacity */
             pointer-events: none;
         }
-        .col-md-4{
-            height: 300px; /* Set your desired height */
-            overflow: hidden; /* Hide any image overflow */
+
+        .col-md-4 {
+            height: 300px;
+            /* Set your desired height */
+            overflow: hidden;
+            /* Hide any image overflow */
         }
+
         .thumbnail img {
             width: 100%;
             height: auto;
             object-fit: cover;
             object-position: center center;
         }
+
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 100; /* Ensure it appears above other content */
+            z-index: 100;
+            /* Ensure it appears above other content */
         }
-        .btn-primary{
+
+        .btn-primary {
             background-color: black;
-            border:black;
+            border: black;
         }
+
         .btn-primary:hover {
-            background-color: #FDB935; 
+            background-color: #FDB935;
         }
     </style>
 
@@ -91,28 +106,28 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span
                     class="navbar-toggler-icon"></span></button>
 
-                <ul class="navbar-nav">
-                    <a class="btn btn-warning" href="{% url 'index' %}">Home</a>
-                </ul>
-            
+            <ul class="navbar-nav">
+                <a class="btn btn-warning" href="{% url 'index' %}">Home</a>
+            </ul>
+
             <!-- Add a "Menu" dropdown -->
             <div class="dropdown">
                 <button class="btn dropdown-toggle" type="button" id="menuDropdown" data-bs-toggle="dropdown">
                     Menu
                 </button>
                 <div class="dropdown-menu" aria-labelledby="menuDropdown">
-                    <a class="dropdown-item" href="{% url 'login' %}">Sign In</a>
-                    <a class="dropdown-item" href="{% url 'register' %}">Sign Up</a>
+                    <a class="dropdown-item" href="#">Sign In</a>
+                    <a class="dropdown-item" href="#">Sign Up</a>
                     <a class="dropdown-item" href="{% url 'player' %}">Players</a>
                     <a class="dropdown-item" href="#">Schedules</a>
                 </div>
             </div>
-    
+
         </div>
     </nav>
 
     {% block content %}
-    
+
     {% endblock %}
 </body>
 

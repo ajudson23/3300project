@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.views import generic
 from .models import *
-from .forms import * 
-from django.contrib.auth import login, authenticate, logout
+from .forms import * # <-- NEW
 
 
 def index(request):
@@ -48,36 +47,3 @@ def updatePlayer(request, pk):
         form = PlayerForm(instance=player)
     context = {'form': form, 'player': player}
     return render(request, 'hockey_app/update_player.html', context)
-
-def register(request):
-    if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('login')
-    else:
-        form = RegistrationForm()
-    return render(request, 'register.html', {'form': form})
-
-def user_login(request):
-    if request.method == 'POST':
-        form = LoginForm(data=request.POST)
-        if form.is_valid():
-            user = form.get_user()
-            login(request, user)
-            return redirect('index')  # Change 'home' to your desired home page
-    else:
-        form = LoginForm()
-
-    template_path = 'login.html'
-    try:
-        return render(request, template_path, {'form': form})
-    except TemplateDoesNotExist:
-        print(f"Template does not exist: {template_path}")
-        raise  # Reraise the exception for detailed error information
-
-
-
-def user_logout(request):
-    logout(request)
-    return redirect('login')
